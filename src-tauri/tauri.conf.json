@@ -64,7 +64,6 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      
       "resources": [],
       "shortDescription": "",
       "targets": "all",
@@ -83,10 +82,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 700,
         "resizable": true,
         "title": "Pomodoro Timer",
-        "width": 800
+        "width": 800,
+        "minHeight": 600,
+        "minWidth": 700
       }
     ]
   }
