@@ -5,14 +5,18 @@ import { TimeContext } from '../context/TimeContext';
 import { HoursComponent } from './HoursComponent';
 
 export const TimerComponent = () => {
-  const {hasInitiatedTimer, setHasInitiatedTimer, timeSelected,setTimeSelected} = useContext(TimeContext);
+  const {
+    hasInitiatedTimer, 
+    setHasInitiatedTimer, 
+    timeSpent,
+    setTimeSpent,
+    timeSelected,
+  } = useContext(TimeContext);
   
   const [timeOfTheSession, setTimeOfTheSession] = useState<number>(timeSelected); 
   const [pause,setPause] = useState<boolean>(false);
 
   const [sessions, setSessions] = useState<number>(0);
-  const [timeSpent, setTimeSpent] = useState<number>(0);
-  const [intervalTimeSelected, setIntervalTimeSelected] = useState(0);
 
   useEffect(() => {
     if (pause) return;
@@ -40,7 +44,7 @@ export const TimerComponent = () => {
 
   
   const triggerFinishEarly = () => {
-    setTimeSpent(timeSelected - timeOfTheSession);
+    setTimeSpent(timeSelected - timeOfTheSession + timeSpent);
     setHasInitiatedTimer(false);
   }
     return (

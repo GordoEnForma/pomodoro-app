@@ -1,13 +1,14 @@
-import { useEffect, useState, useContext } from 'react';
-import { sendNotification } from '@tauri-apps/api/notification';
-import { Flex } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { SetUpTimerComponent } from "./components/SetUpTimerComponent";
 import { TimerComponent } from "./components/TimerComponent";
 import { TimeContext } from './context/TimeContext';
+import { SpentTime } from './components';
 
 export const App = () => {
 
-  const { hasInitiatedTimer } = useContext(TimeContext);
+  const { hasInitiatedTimer, timeSpent } = useContext(TimeContext);
+
   return (
     <Flex
       alignItems={'center'}
@@ -23,22 +24,19 @@ export const App = () => {
 
         <TimerComponent />
         // {/* Set Up Timer  */}
-        ) : (
-          // {/* Time Running with Pause/Resume buttons  */}
-          <SetUpTimerComponent />
+      ) : (
+        // {/* Time Running with Pause/Resume buttons  */}
+        <SetUpTimerComponent />
       )
       }
 
-
-
-
-      {/* <Flex w={{ base: '100%' }} justifyContent={'space-evenly'} flexDirection={{ base: 'column', sm: 'row' }}>
-          <Box>
-            <Text color={'whiteAlpha.900'} mt={5} fontWeight={"bold"} fontSize={24} textAlign={'center'}>Number of Sessions Completed:</Text>
-            <Text color={'whiteAlpha.900'} fontSize={20} textAlign={'center'}>{sessions}</Text>
-          </Box>
-          <SpentTime timeSpent={timeSpent} />
-        </Flex> */}
+      <Flex w={{ base: '100%' }} justifyContent={'space-evenly'} flexDirection={{ base: 'column', sm: 'row' }}>
+        <Box>
+          <Text color={'whiteAlpha.900'} mt={5} fontWeight={"bold"} fontSize={24} textAlign={'center'}>Number of Sessions Completed:</Text>
+          {/* <Text color={'whiteAlpha.900'} fontSize={20} textAlign={'center'}>{sessions}</Text> */}
+        </Box>
+        <SpentTime timeSpent={timeSpent} />
+      </Flex>
 
 
 

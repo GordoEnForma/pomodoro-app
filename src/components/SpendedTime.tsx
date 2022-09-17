@@ -8,12 +8,11 @@ type Props = {
 
 export const SpentTime = memo(({ timeSpent }: Props) => {
     
-    console.log('SpendedTime')
     return (
         <Box>
             <Text color={'whiteAlpha.900'} mt={5} fontWeight={"bold"} fontSize={24} textAlign={'center'}>Amount of Time Spent Working:</Text>
             <Text color={'whiteAlpha.900'} fontSize={20} textAlign={'center'}>
-                <HoursComponent timeInSeconds={timeSpent} displayHours={(timeSpent >= 3600) ? true : false} />
+                <HoursComponent timeInSeconds={timeSpent}  />
             </Text>
         </Box>
     )
