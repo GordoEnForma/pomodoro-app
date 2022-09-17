@@ -15,17 +15,17 @@ export const HoursComponent = ({timeInSeconds, displayHours= false}:Props) => {
     //     minutes,
     //     seconds
     // })
-    console.log('HoursComponent')
+    console.log('timeInSeconds : ', timeInSeconds)
     return (
         <>
             {
-            (displayHours === true) ?  
+            
             //hours
             `${Math.floor(timeInSeconds / 3600) < 10 
             ? `0${Math.floor(timeInSeconds / 3600)}` 
             : `${Math.floor(timeInSeconds / 3600)}`} :` 
             
-            : null
+
             
             }
             {
